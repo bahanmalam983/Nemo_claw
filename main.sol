@@ -70,3 +70,8 @@ contract Nemo_claw {
     function last_claim_block() external view returns (uint256) {
         return _last_claim_block;
     }
+
+    function is_sealed() external view returns (bool) {
+        return _sealed;
+    }
+}
