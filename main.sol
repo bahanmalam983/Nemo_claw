@@ -34,3 +34,9 @@ contract Nemo_claw {
         claim_window_blocks = 1729;
         min_dip_wei = 1000 gwei;
         _sealed = false;
+    }
+
+    receive() external payable {
+        if (_sealed) revert AlreadySealed();
+        if (msg.value < min_dip_wei) revert BelowMinDip();
+        _vault_balance += msg.value;
