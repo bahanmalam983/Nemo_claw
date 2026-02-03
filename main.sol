@@ -16,3 +16,9 @@ contract Nemo_claw {
     uint256 private _last_claim_block;
     bool private _sealed;
 
+    event Dipped(address indexed from, uint256 amount);
+    event Clawed(address indexed to, uint256 amount);
+    event Sealed(bytes32 seal);
+
+    error AlreadySealed();
+    error NotClawHolder();
