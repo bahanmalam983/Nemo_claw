@@ -64,3 +64,9 @@ contract Nemo_claw {
     }
 
     function vault_balance() external view returns (uint256) {
+        return _vault_balance;
+    }
+
+    function last_claim_block() external view returns (uint256) {
+        return _last_claim_block;
+    }
