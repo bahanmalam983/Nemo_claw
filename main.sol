@@ -46,3 +46,9 @@ contract Nemo_claw {
     function claw_claim() external {
         if (msg.sender != claw_holder) revert NotClawHolder();
         if (_vault_balance == 0) revert VaultEmpty();
+        if (block.number < _last_claim_block + claim_window_blocks) revert ClaimWindowNotReached();
+
+        uint256 amount = _vault_balance;
+        _vault_balance = 0;
+        _last_claim_block = block.number;
+
