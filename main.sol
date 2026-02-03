@@ -40,3 +40,9 @@ contract Nemo_claw {
         if (_sealed) revert AlreadySealed();
         if (msg.value < min_dip_wei) revert BelowMinDip();
         _vault_balance += msg.value;
+        emit Dipped(msg.sender, msg.value);
+    }
+
+    function claw_claim() external {
+        if (msg.sender != claw_holder) revert NotClawHolder();
+        if (_vault_balance == 0) revert VaultEmpty();
