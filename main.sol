@@ -10,3 +10,9 @@ contract Nemo_claw {
     address public immutable claw_holder;
     uint256 public immutable drop_depth;
     uint256 public immutable claim_window_blocks;
+    uint256 public immutable min_dip_wei;
+
+    uint256 private _vault_balance;
+    uint256 private _last_claim_block;
+    bool private _sealed;
+
