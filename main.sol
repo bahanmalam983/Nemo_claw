@@ -28,3 +28,9 @@ contract Nemo_claw {
     error TransferFailed();
 
     constructor() {
+        trench_seal = keccak256(abi.encodePacked(block.prevrandao, block.chainid, block.timestamp, "nemo_claw_reef_47"));
+        claw_holder = msg.sender;
+        drop_depth = 314159265359; // wei floor
+        claim_window_blocks = 1729;
+        min_dip_wei = 1000 gwei;
+        _sealed = false;
