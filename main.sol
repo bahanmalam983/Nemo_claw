@@ -22,3 +22,9 @@ contract Nemo_claw {
 
     error AlreadySealed();
     error NotClawHolder();
+    error VaultEmpty();
+    error BelowMinDip();
+    error ClaimWindowNotReached();
+    error TransferFailed();
+
+    constructor() {
