@@ -58,3 +58,9 @@ contract Nemo_claw {
     }
 
     function seal_trench() external {
+        if (msg.sender != claw_holder) revert NotClawHolder();
+        _sealed = true;
+        emit Sealed(trench_seal);
+    }
+
+    function vault_balance() external view returns (uint256) {
