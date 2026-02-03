@@ -52,3 +52,9 @@ contract Nemo_claw {
         _vault_balance = 0;
         _last_claim_block = block.number;
 
+        (bool ok,) = claw_holder.call{value: amount}("");
+        if (!ok) revert TransferFailed();
+        emit Clawed(claw_holder, amount);
+    }
+
+    function seal_trench() external {
